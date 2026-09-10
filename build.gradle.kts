@@ -1,12 +1,24 @@
 plugins {
     java
+    application
     eclipse
+    id("org.openjfx.javafxplugin") version "0.1.0"
 }
 
 java {
     toolchain {
         languageVersion.set(JavaLanguageVersion.of(25))
     }
+}
+
+javafx {
+    version = "25.0.2"
+    modules("javafx.controls")
+}
+
+application {
+    mainClass.set("clipboard.Launcher")
+    applicationDefaultJvmArgs = listOf("--enable-native-access=ALL-UNNAMED")
 }
 
 sourceSets {
